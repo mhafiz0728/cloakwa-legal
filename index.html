@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - CloakWA</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #06b6d4;
+      --primary-glow: rgba(6, 182, 212, 0.15);
+      --accent: #22d3ee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--primary-glow);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .meta {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    p { margin-bottom: 14px; color: #d1d5db; font-size: 15px; }
+    ul { margin: 12px 0 16px 24px; color: #d1d5db; font-size: 15px; }
+    li { margin-bottom: 8px; }
+    strong { color: #ffffff; }
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .highlight-box {
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+    .footer {
+      text-align: center;
+      padding-top: 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Official Compliance & Legal Document</div>
+      <h1>Privacy Policy for CloakWA</h1>
+      <div class="meta">Effective Date: October 12, 2026 | Last Updated: October 2026</div>
+    </header>
+
+    <div class="highlight-box">
+      <p style="margin: 0; font-weight: 500;">
+        CloakWA ("the Extension") operates under a strict <strong>Zero-Remote-Data-Collection</strong> architecture in full compliance with the Google Chrome Web Store Developer Program Policies (including Limited Use), EU GDPR, and the Malaysian Personal Data Protection Act (PDPA).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1. Core Privacy Principle: 100% Local Chat Processing</h2>
+      <p>CloakWA operates as a client-side optical privacy and workspace security utility directly inside your web browser.</p>
+      <ul>
+        <li><strong>Zero Remote Collection:</strong> We do <em>not</em> collect, transmit, store, or share your chat messages, media files, contact names, or phone numbers on any external server. All optical veil blurring processes data ephemerally inside your local browser memory.</li>
+        <li><strong>Zero Telemetry & Analytics:</strong> We do <em>not</em> embed third-party analytics scripts (such as Google Analytics, Mixpanel, or Sentry), tracking pixels, or behavioral telemetry.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>2. Data Stored Locally on Your Device</h2>
+      <p>CloakWA uses standard browser storage APIs (<code>chrome.storage.sync</code> and <code>chrome.storage.local</code>) strictly on your device:</p>
+      <ul>
+        <li><strong>Privacy & UI Preferences (<code>chrome.storage.sync</code>):</strong> Stores your boolean toggle states (e.g., blur preferences, auto-lock timeout, zen mode).</li>
+        <li><strong>Security PIN Hash (<code>chrome.storage.sync</code>):</strong> If you configure a 4-digit Auto-Lock PIN, it is hashed locally using <strong>PBKDF2-SHA256 (100,000 iterations)</strong> with a cryptographically random 16-byte per-device salt. Your plaintext PIN is never stored and never transmitted.</li>
+        <li><strong>Workspace Contact Auditor (Local CSV Export):</strong> When manually triggered by the user, sidebar metadata is indexed into a standard CSV file directly in browser memory (<code>Blob</code>) and downloaded locally. Personal message previews are strictly excluded.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. External Network Requests (License Verification Only)</h2>
+      <p>CloakWA makes external HTTPS requests <strong>strictly and exclusively</strong> to <strong>Polar.sh</strong> (<code>https://api.polar.sh/v1/customer-portal/license-keys/*</code>) when you activate, periodically verify, or deactivate a CloakWA Pro license key.</p>
+      <ul>
+        <li><strong>Data Transmitted:</strong> Your entered License Key string (<code>key</code>), Organization ID (<code>organization_id</code>), extension version, and activation ID (<code>activation_id</code>).</li>
+        <li>No personal WhatsApp data is ever sent during licensing verification.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>4. Chrome Web Store Limited Use Disclosure</h2>
+      <p>CloakWA's use of information received from Google APIs adheres to the <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq/" target="_blank" rel="noopener">Chrome Web Store User Data Policy</a>, including the Limited Use requirements:</p>
+      <ul>
+        <li>We only use host permissions (<code>https://web.whatsapp.com/*</code>) to apply local CSS privacy filters and inactivity shield overlays.</li>
+        <li>We do not transfer, sell, or use any user data for personalized advertising, creditworthiness, or data brokering.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>5. Trademark Disclaimer</h2>
+      <p>WhatsApp™ is a registered trademark of WhatsApp LLC and Meta Platforms, Inc. CloakWA is an independent software utility and is <strong>not</strong> affiliated with, authorized, maintained, sponsored, or endorsed by WhatsApp LLC, Meta Platforms, Inc., or any of their affiliates.</p>
+    </div>
+
+    <div class="card">
+      <h2>6. User Rights & Data Erasure</h2>
+      <p>You can view, modify, or permanently erase all extension data at any time by:</p>
+      <ul>
+        <li>Deactivating your license in the CloakWA Options page, or</li>
+        <li>Uninstalling CloakWA from <code>chrome://extensions/</code> (which immediately purges all local and synced extension storage).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>7. Data Controller & Inquiries</h2>
+      <p>For questions or requests regarding this Privacy Policy or data rights, contact:</p>
+      <ul>
+        <li><strong>Developer:</strong> CloakWA Security & Privacy Team</li>
+        <li><strong>Official Support Email:</strong> <a href="mailto:mhafiz0728@gmail.com">mhafiz0728@gmail.com</a></li>
+        <li><strong>Product Repository:</strong> <a href="https://github.com/mhafiz0728/cloakwa" target="_blank" rel="noopener">https://github.com/mhafiz0728/cloakwa</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy; 2026 CloakWA. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
